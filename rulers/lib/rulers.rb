@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require "rulers/array"
 require_relative "rulers/version"
 
 module Rulers
