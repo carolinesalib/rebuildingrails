@@ -35,6 +35,8 @@ Gem::Specification.new do |spec|
   # spec.add_dependency "example-gem", "~> 1.0"
 
   spec.add_runtime_dependency "rack"
+  spec.add_development_dependency "rack-test"
+  spec.add_development_dependency "minitest"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
