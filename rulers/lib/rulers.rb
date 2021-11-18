@@ -8,6 +8,9 @@ module Rulers
     def call(env)
       if env["PATH_INFO"] == "/favicon.ico"
         return [404, {"Content-Type" => "text/html"}, []]
+      elsif env["PATH_INFO"] == "/"
+        file = File.open("public/index.html")
+        return [200, {"Content-Type" => "text/html"}, [file.read]]
       end
 
       klass, act = get_controller_and_action(env)
