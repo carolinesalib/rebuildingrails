@@ -1,15 +1,23 @@
+PATH
+  remote: ../rulers
+  specs:
+    rulers (0.0.2)
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
+    nio4r (2.5.8)
+    puma (5.5.2)
+      nio4r (~> 2.0)
     rack (2.2.3)
-    rulers (0.0.2)
-      rack
 
 PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  rulers
+  puma
+  rulers!
 
 BUNDLED WITH
    2.2.21
