@@ -24,7 +24,7 @@ module Rulers
       rescue
         # Without this error interception we would see rack's default fancy error page
         # with stack trace - Only on development mode though
-        return [500, {"Content-Type" => "text/html"}, ["Oh crap!!"]]
+        # return [500, {"Content-Type" => "text/html"}, ["Oh crap!!"]]
       end
 
       [200, {"Content-Type" => "text/html"}, [text]]
