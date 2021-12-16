@@ -22,6 +22,10 @@ module Rulers
         @hash[name.to_s] = value
       end
 
+      def save
+        File.write(@filename, @hash.to_json)
+      end
+
       def self.find(id)
         begin
           FileModel.new("db/quotes/#{id}.json")

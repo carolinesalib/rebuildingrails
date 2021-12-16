@@ -23,6 +23,16 @@ class QuotesController < Rulers::Controller
     render :quote, :obj => m
   end
 
+  def update_quote
+    return "Page not found" if env["REQUEST_METHOD"] != "POST"
+
+    quote_1 = FileModel.find(1)
+    quote_1["submitter"] = "Updated Jeff"
+
+    quote_1.save
+    quote_1.inspect
+  end
+
   def exception
     raise "It's a bad one!"
   end
