@@ -53,6 +53,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   minitest
@@ -63,4 +64,4 @@ DEPENDENCIES
   rulers!
 
 BUNDLED WITH
-   2.2.21
+   2.2.26
