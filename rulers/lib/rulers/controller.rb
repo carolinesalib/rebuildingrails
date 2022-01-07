@@ -32,19 +32,21 @@ module Rulers
       @response
     end
 
-    def render_response(*args)
-      response(render(*args))
+    def default_view_filename(action)
+      File.join "app", "views", controller_name, "#{action}.html.erb" 
     end
 
     def render(view_name, locals = {})
       filename = File.join "app", "views", controller_name, "#{view_name}.html.erb"
       template = File.read filename
       eruby = Erubis::Eruby.new(template)
-      eruby.result locals.merge(
+      result = eruby.result locals.merge(
         env: env,
         controller_name: controller_name,
         action_name: view_name,
       )
+      response(result)
+      result
     end
 
     def controller_name

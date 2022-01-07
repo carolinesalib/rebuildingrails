@@ -25,7 +25,7 @@ module Rulers
       if r
         [r.status, r.headers, [r.body].flatten]
       else
-        [200, {'Content-Type' => 'text/html'}, [text]]
+        [200, {'Content-Type' => 'text/html'}, [File.read(controller.default_view_filename(act))]]
       end
     end
   end
