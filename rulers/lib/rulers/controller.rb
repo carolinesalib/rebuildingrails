@@ -32,15 +32,20 @@ module Rulers
       @response
     end
 
+    def instance_hash
+      h = {}
+      instance_variables.each do |i|
+        h[i] = instance_variable_get(i)
+      end
+      h
+    end
+
     def render(view_name, locals = {})
       filename = File.join "app", "views", controller_name, "#{view_name}.html.erb"
       template = File.read filename
-      eruby = Erubis::Eruby.new(template)
-      eruby.result locals.merge(
-        env: env,
-        controller_name: controller_name,
-        action_name: view_name,
-      )
+      v = View.new
+      v.set_vars(instance_hash)
+      v.evaluate(template)
     end
 
     def controller_name

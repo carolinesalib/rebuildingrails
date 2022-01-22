@@ -42,4 +42,9 @@ class QuotesController < Rulers::Controller
   def exception
     raise "It's a bad one!"
   end
+
+  def view_test
+    @noun = "roller skating"
+    render :view_test
+  end
 end
