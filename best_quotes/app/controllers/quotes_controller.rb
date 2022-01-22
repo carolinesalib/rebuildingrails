@@ -11,7 +11,7 @@ class QuotesController < Rulers::Controller
   def show
     quote = FileModel.find(params["id"])
     ua = request.user_agent
-    render :quote, obj: quote, ua: ua
+    render_response :quote, obj: quote, ua: ua
   end
 
   def quote_1
@@ -27,10 +27,6 @@ class QuotesController < Rulers::Controller
     }
     m = FileModel.create attrs
     render :quote, :obj => m
-  end
-
-  def new_action
-    # This action has no view so it should raise an error with the expected view
   end
 
   def update_quote
