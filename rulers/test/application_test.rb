@@ -21,7 +21,10 @@ class RulersAppTest < Minitest::Test
   end
 
   def test_request
-    err = assert_raises { get "/example/route" }
-    assert_match "No such file or directory @ rb_sysopen - app/views/test/index.html.erb", err.message
+    get "/example/route"
+
+    assert last_response.ok?
+    body = last_response.body
+    assert body["Hello"]
   end
 end
