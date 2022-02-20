@@ -10,15 +10,15 @@ module Rulers
     class SQLite
       def initialize(data = nil)
         @hash = data
+      end
 
-        @hash.keys.each do |hash_key|
-          define_singleton_method(hash_key) do
-            @hash[hash_key]
-          end
-
-          define_singleton_method(hash_key + "=") do |value|
-            @hash[hash_key] = value
-          end
+      def method_missing(method, *args)
+        method_name = method.to_s
+        hash_key = method_name.chomp("=")
+        if method_name.include?("=")
+          @hash[hash_key] = args[0]
+        else
+          @hash[hash_key]
         end
       end
 
