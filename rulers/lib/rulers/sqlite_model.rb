@@ -10,6 +10,16 @@ module Rulers
     class SQLite
       def initialize(data = nil)
         @hash = data
+
+        @hash.keys.each do |hash_key|
+          define_singleton_method(hash_key) do
+            @hash[hash_key]
+          end
+
+          define_singleton_method(hash_key + "=") do |value|
+            @hash[hash_key] = value
+          end
+        end
       end
 
       def self.find(id)

@@ -13,12 +13,12 @@ mt = MyTable.create(
   "body" => "It did!"
 )
 
-mt["title"] = "I really did!"
+mt.title = "I really did!"
 mt.save!
 
 mt2 = MyTable.find(mt["id"])
 
-puts "Title: #{mt2["title"]}"
+puts "Title: #{mt2.title}"
 # mt = MyTable.create "title" => "I saw it!"
 #
 # puts "Count: #{MyTable.count}"
