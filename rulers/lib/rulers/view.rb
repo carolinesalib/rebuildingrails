@@ -6,9 +6,9 @@ module Rulers
       end
     end
 
-    def evaluate(template)
+    def evaluate(template, locals = {})
       eruby = Erubis::Eruby.new(template)
-      eval eruby.src
+      eruby.result(locals)
     end
 
     def h(str)

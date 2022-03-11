@@ -45,7 +45,7 @@ module Rulers
       template = File.read filename
       v = View.new
       v.set_vars(instance_hash)
-      v.evaluate(template)
+      v.evaluate(template, locals)
     end
 
     def controller_name

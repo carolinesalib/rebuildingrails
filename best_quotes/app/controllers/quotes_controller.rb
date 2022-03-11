@@ -10,13 +10,12 @@ class QuotesController < Rulers::Controller
 
   def show
     quote = FileModel.find(params["id"])
-    ua = request.user_agent
     render :quote, obj: quote, ua: ua
   end
 
   def quote_1
     quote_1 = FileModel.find(1)
-    render :quote, obj: quote_1
+    render :quote, obj: quote_1, ua: ua
   end
 
   def new_quote
@@ -26,7 +25,7 @@ class QuotesController < Rulers::Controller
       "attribution" => "Me"
     }
     m = FileModel.create attrs
-    render :quote, :obj => m
+    render :quote, :obj => m, ua: ua
   end
 
   def update_quote
@@ -46,5 +45,11 @@ class QuotesController < Rulers::Controller
   def view_test
     @noun = "roller skating"
     render :view_test
+  end
+
+  private
+
+  def ua
+    ua = request.user_agent
   end
 end
