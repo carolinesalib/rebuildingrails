@@ -1,2 +1,7 @@
-inherit_gem:
-  rubocop-shopify: rubocop.yml
+# inherit_gem:
+#   rubocop-shopify: rubocop.yml
+#   prettier: rubocop.yml
+AllCops:
+  EnabledByDefault: true
+Style/Copyright:
+  Enabled: true
