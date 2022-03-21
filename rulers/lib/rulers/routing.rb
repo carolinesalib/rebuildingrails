@@ -33,6 +33,10 @@ module Rulers
       @rules.push({ regexp: Regexp.new("^/#{regexp}$"), vars: vars, dest: dest, options: options })
     end
 
+    def root(*args)
+      match("", *args)
+    end
+
     def check_url(url)
       @rules.each do |r|
         m = r[:regexp].match(url)
